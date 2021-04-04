@@ -11,7 +11,7 @@ import lombok.ToString;
 @JsonPropertyOrder({"newUser"})
 public class NewUser {
 
-    private String name;
+    private String userName;
     private String empId;
     private String address;
     private String email;

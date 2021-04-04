@@ -15,10 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -119,5 +116,21 @@ public class UserManagement {
                 .setTimeStamp(DatetimeUtil.dateFormatter(new Date()))
                 .build();
         return new ResponseEntity<>(message, status);
+    }
+
+    @GetMapping(value = "/list-user", produces = "application/json")
+    @ApiResponses(value = {@ApiResponse(code = 201, message = "list All Users"),
+            @ApiResponse(code = 500, message = "Exception occur when processing list all user")})
+    public ResponseEntity<ResponseMessage> ListUser(Errors errors)
+            throws InvalidTraceIdException, NullTraceIdException {
+        return null;
+    }
+
+    @PutMapping(value = "/update-user", produces = "application/json")
+    @ApiResponses(value = {@ApiResponse(code = 201, message = "Update Users"),
+            @ApiResponse(code = 500, message = "Exception occur when processing update all user")})
+    public ResponseEntity<ResponseMessage> UpdateUser(@RequestBody NewUser newUser, Errors errors)
+            throws InvalidTraceIdException, NullTraceIdException {
+        return null;
     }
 }
